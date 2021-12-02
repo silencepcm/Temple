@@ -157,6 +157,10 @@ namespace Gamekit3D
 
         private bool CheckDamage(Collider other, AttackPoint pts)
         {
+            if (other.gameObject.tag == "Interactive")
+            {
+                Debug.Log("Collision");
+            }
             Damageable d = other.GetComponent<Damageable>();
             if (d == null)
             {
@@ -176,11 +180,11 @@ namespace Gamekit3D
             {
                 var renderer = other.GetComponent<Renderer>();
                 if (!renderer)
-                    renderer = other.GetComponentInChildren<Renderer> ();
+                    renderer = other.GetComponentInChildren<Renderer>();
                 if (renderer)
-                    hitAudio.PlayRandomClip (renderer.sharedMaterial);
+                    hitAudio.PlayRandomClip(renderer.sharedMaterial);
                 else
-                    hitAudio.PlayRandomClip ();
+                    hitAudio.PlayRandomClip();
             }
 
             Damageable.DamageMessage data;

@@ -11,6 +11,8 @@ namespace Gamekit3D
         {
             //we make sure the checkpoint is part of the Checkpoint layer, which is set to interact ONLY with the player layer.
             gameObject.layer = LayerMask.NameToLayer("Checkpoint");
+            transform.position = GameObject.Find("Ellen").transform.position;
+            transform.rotation = GameObject.Find("Ellen").transform.rotation;
         }
 
         private void OnTriggerEnter(Collider other)
